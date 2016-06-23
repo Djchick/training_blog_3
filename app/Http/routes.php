@@ -20,3 +20,7 @@ Route::post('login', ['as' => 'postLogin', 'uses' => 'Auth\AuthController@postLo
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 
 Route::resource('user', 'UserController');
+
+Route::group([ 'middleware' => ['auth']], function() {
+    Route::resource('entry', 'EntryController');
+});

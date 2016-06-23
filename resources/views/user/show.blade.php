@@ -20,8 +20,11 @@
                         <h3 class="page-header">{{ trans('user/messages.wellcome_user') }}  {{ Auth::user()->name }}</h3>
                     </div>
                     <!-- /.col-lg-12 -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 center">
                         {{ trans('user/labels.email_info') }} {{ Auth::user()->email }}
+                    </div>
+                    <div class="col-lg-12 center">
+                        <a class="btn btn-success" href="#">{{ trans('user/labels.register_follow') }}</a>
                     </div>
                 </div>
                 <!-- /.row -->

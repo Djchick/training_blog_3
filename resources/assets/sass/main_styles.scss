@@ -17,27 +17,36 @@ p {
     margin: 30px 0;
     font-size: 40px;
 }
-.center{
+.right {
+    float: right;
+}
+.center {
     text-align: center;
 }
-.wrapper{
+#wrapper{
     position: relative;
     .style1 {
+        .inner{
+            float:left;
+            width:100%;
+            margin-bottom:30px;
+            padding-bottom:30px;
+            border-bottom:1px solid #ccc;
+        }
         .feature {
             background-color: #fff;
             float: left;
             width: 100%;
             .image {
-                width: 48%;
+                width: 30%;
                 float: left;
                 & img {
                     max-width: 100%;
                 }
             }
             .content {
-                padding: 2em 3em 0.1em 3em;
-                width: 52%;
                 float: right;
+                width: 100%;
             }
         }
         h1, h2, h3, h4, h5, h6 {
@@ -48,7 +57,6 @@ p {
             color: #fff !important;
         }
     }
-
 }
 .image {
     border-radius: 0;
@@ -60,21 +68,40 @@ p {
         display: block;
     }
 }
-ul {
+.inner ul {
     list-style: disc;
-    margin: 0 0 2em 0;
-    padding-left: 1em;
+    padding-left: 0px;
     .actions {
         cursor: default;
         list-style: none;
         padding-left: 0;
         & > li:last-child {
-            padding-right: 0;
+            padding-right: 0px;
         }
         & li {
             display: inline-block;
             padding: 0 1em 0 0;
             vertical-align: middle;
         }
+    }
+    & li {
+        display: inline-block;
+        padding: 0 1em 0 0;
+        & p {
+            margin:0px;
+        }
+    }
+    & li:first-child {
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right: 1px solid #ccc;
+    }
+}
+.page-header {
+    text-align:center;
+    small {
+        font-size: 30px;
+        font-weight: bold;
+        font-family: arial;
     }
 }

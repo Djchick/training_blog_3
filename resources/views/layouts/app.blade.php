@@ -37,12 +37,37 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route('user.show', Auth::user()->id) }}"><i class="fa fa-btn fa-user"></i>{{ trans('user/labels.user_info') }}</a></li>
-                            <li><a href="{{ route('logout') }}"><i class="fa fa-btn fa-sign-out"></i>{{ trans('user/labels.logout') }}</a></li>
-                        </ul>
+                                <i class="fa fa-btn fa-book"></i>{{ trans('entry/labels.my_entry') }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('entry.index') }}">
+                                        <i class="fa fa-btn fa-clone"></i>{{ trans('entry/labels.list_entry') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('entry.create') }}">
+                                        <i class="fa fa-btn fa-edit"></i>{{ trans('entry/labels.page_add_entry') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('user.show', Auth::user()->id) }}">
+                                        <i class="fa fa-btn fa-user"></i>{{ trans('user/labels.user_info') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}">
+                                        <i class="fa fa-btn fa-sign-out"></i>{{ trans('user/labels.logout') }}
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     @endif
                 </ul>

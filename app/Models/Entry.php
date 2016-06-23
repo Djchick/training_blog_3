@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Entry extends Model
 {
@@ -13,7 +14,7 @@ class Entry extends Model
 
     protected $fillable = ['user_id', 'title', 'body'];
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -21,5 +22,15 @@ class Entry extends Model
 
     public function comments() {
         return $this->hasMany(Comment::class);
+    }
+
+    public function getCreatedAtAttribute($value) {
+        $rule = config('common.entry.rule');
+        return date("{$rule['time']}", strtotime($value));
+    }
+
+    public function getUpdatedAtAttribute($value) {
+        $rule = config('common.entry.rule');
+        return date("{$rule['time']}", strtotime($value));
     }
 }

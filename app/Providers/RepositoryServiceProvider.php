@@ -7,6 +7,8 @@ use App;
 use View;
 use App\Repositories\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
+use App\Repositories\EntryRepository;
+use App\Repositories\Entry\EntryRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -28,5 +30,6 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         App::bind(UserRepositoryInterface::class, UserRepository::class);
+        App::bind(EntryRepositoryInterface::class, EntryRepository::class);
     }
 }
